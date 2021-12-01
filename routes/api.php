@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::any('/test', [QueueController::class, 'test']);//接口测试
 
 Route::any('/test2', [QueueController::class, 'test2']);//redis缓存
+
+Route::any('/mail/sendReminderEmail', [QueueController::class, 'sendReminderEmail']);

@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Mail;
+use Storage;
+use App\User;
+use App\Jobs\SendReminderEmail;
+
 class QueueController extends Controller{
   //接口测试
   public function test(){
@@ -19,5 +26,11 @@ class QueueController extends Controller{
     
     return Redis::get('cache03');
 
+  }
+
+  //推送提醒邮件到队列
+  public function sendReminderEmail(){
+    $this->dispatch(new SendReminderEmail());
+    return '邮件推送队列成功';
   }
 }
