@@ -33,3 +33,4 @@ MAIL_FROM_NAME=HAYA
 3. 在resources/views/emails/reminder.blade.php 中创建邮件视图
 4. $this->dispatch(new SendReminderEmail()) 推送队列任务到redis队列
 5. 终端中运行 php artisan queue:work --daemon 监听队列
+6. config/queue.php中配置REDIS_QUEUE（监听的队列）
