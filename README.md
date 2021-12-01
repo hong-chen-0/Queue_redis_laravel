@@ -1,18 +1,31 @@
 .env =>
+
 配置redis:
+
 REDIS_HOST=127.0.0.1
+
 REDIS_PASSWORD=null
+
 REDIS_PORT=6379
+
 REDIS_CLIENT=predis
 
 配置mail:
+
 MAIL_MAILER=smtp
+
 MAIL_HOST=smtp.163.com
+
 MAIL_PORT=465
+
 MAIL_USERNAME=qgctempler@163.com
+
 MAIL_PASSWORD=UYKJEUSYEBWQBYBF
+
 MAIL_ENCRYPTION=ssl
+
 MAIL_FROM_ADDRESS=qgctempler@163.com
+
 MAIL_FROM_NAME=HAYA
 
 1. 修改.env中的 QUEUE_DRIVER 为 redis
