@@ -29,7 +29,13 @@ class QueueController extends Controller{
 
   //推送提醒邮件到队列
   public function sendReminderEmail(){
-    $this->dispatch(new SendReminderEmail());
+
+    //分配队列
+    $job = (new SendReminderEmail())->onQueue('emails');
+    //延迟一分钟
+    //$job = (new SendReminderEmail())->delay(60);
+    $this->dispatch($job);
+
     return '邮件推送队列成功';
   }
 }
