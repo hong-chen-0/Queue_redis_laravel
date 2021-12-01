@@ -8,26 +8,27 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Contracts\Mail\Mailer;
 
 class SendReminderEmail implements ShouldQueue{
 
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+  use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $user;
+  protected $user;
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
+  /**
+   * Execute the job.
+   *
+   * @return void
+   */
 
-    //创建JOB类任务
-    public function handle(){
-      Mail::send('emails.reminder',[
-        'company'=>'123'
-      ],function($message){
-        $to = 'qgctempler@gmail.com'; 
-        $message ->to($to)->subject('新邮件');  
-      });
-    }
+  //创建队列任务
+  public function handle(){
+    $mailer->send('emails.reminder',[
+      'company'=>'123'
+    ],function($message){
+      $to = 'qgctempler@gmail.com'; 
+      $message->to($to)->subject('新功能发布');
+    });
+  }
 }

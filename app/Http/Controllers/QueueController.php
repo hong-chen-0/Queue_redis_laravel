@@ -25,7 +25,6 @@ class QueueController extends Controller{
     Redis::set('cache04', '缓存数据04');
     
     return Redis::get('cache03');
-
   }
 
   //推送提醒邮件到队列
