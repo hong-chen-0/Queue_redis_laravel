@@ -29,7 +29,7 @@ MAIL_FROM_ADDRESS=qgctempler@163.com
 MAIL_FROM_NAME=HAYA
 
 1. 修改.env中的 QUEUE_DRIVER 为 redis
-2. php artisan make:job SendReminderEmail  创建JOB任务,编写任务内容（发送邮件等）
+2. php artisan make:job SendReminderEmail  创建JOB类队列任务,编写任务内容（发送邮件等）
 3. 在resources/views/emails/reminder.blade.php 中创建邮件视图
-4. $this->dispatch(new SendReminderEmail()) 推送JOB任务到redis队列
+4. $this->dispatch(new SendReminderEmail()) 推送队列任务到redis队列
 5. 终端中运行 php artisan queue:work --daemon 监听队列
