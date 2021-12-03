@@ -6,6 +6,11 @@ redis-server.exe redis.windows.conf
 
 启动REDIS
 
+操作
+
+打开新的CMD
+
+redis-cli.exe -h 127.0.0.1 -p 6379
 
 
 .env =>
