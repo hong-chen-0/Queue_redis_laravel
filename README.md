@@ -1,3 +1,18 @@
+打开REDIS文件夹，CMD打开
+
+输入
+
+redis-server.exe redis.windows.conf
+
+启动REDIS
+
+操作
+
+打开新的CMD
+
+redis-cli.exe -h 127.0.0.1 -p 6379
+
+
 .env =>
 
 配置redis:
