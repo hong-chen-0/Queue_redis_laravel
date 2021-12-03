@@ -23,4 +23,6 @@ Route::any('/test', [QueueController::class, 'test']);//接口测试
 
 Route::any('/test2', [QueueController::class, 'test2']);//redis缓存
 
-Route::any('/mail/sendReminderEmail', [QueueController::class, 'sendReminderEmail']);
+Route::any('/sendReminderEmail', [QueueController::class, 'sendReminderEmail']);
+
+Route::any('/sendItem', [QueueController::class, 'sendItem']);
