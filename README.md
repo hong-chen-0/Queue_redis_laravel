@@ -1,4 +1,4 @@
-打开REDIS文件夹，CMD打开
+1.打开REDIS文件夹，CMD打开
 
 输入
 
@@ -6,14 +6,14 @@ redis-server.exe redis.windows.conf
 
 启动REDIS
 
-操作
+2.操作
 
 打开新的CMD
 
 redis-cli.exe -h 127.0.0.1 -p 6379
 
 
-.env =>
+3.env =>
 
 配置redis:
 
@@ -42,6 +42,10 @@ MAIL_ENCRYPTION=ssl
 MAIL_FROM_ADDRESS=qgctempler@163.com
 
 MAIL_FROM_NAME=HAYA
+
+4.php artisan migrate
+
+创建REDIS队列失败数据表failed_jobs,即可使用队列推送数据到redis
 
 1. 修改.env中的 QUEUE_DRIVER 为 redis
 2. php artisan make:job SendReminderEmail  创建JOB类队列任务,编写任务内容（发送邮件等）
