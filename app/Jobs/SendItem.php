@@ -11,8 +11,8 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Support\Facades\Redis;
 
-class SendItem implements ShouldQueue
-{
+class SendItem implements ShouldQueue{
+  
   use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
   /**

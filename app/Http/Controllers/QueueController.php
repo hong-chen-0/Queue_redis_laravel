@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Hash;
 class QueueController extends Controller{
   //接口测试
   public function test(){
-    Redis::rpush('zzz', '100');
+    return 'success';
   }
   //redis缓存
-  public function test2(){
+  public function setValue(){
     Redis::set('cache04', 'data');
     
     return Redis::get('cache04');
@@ -53,7 +53,7 @@ class QueueController extends Controller{
   public function buy()
   {
     // 随机用户名
-    $username = '小王';
+    $username = '客户名';
 
     if ($goodsId = Redis::lpop('goods_list')) {
       // 购买成功(存HASH表)
