@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Mail;
@@ -21,10 +20,7 @@ class QueueController extends Controller{
   }
   //redis缓存
   public function test2(){
-    Redis::set('cache01', '缓存数据01');
-    Redis::set('cache02', '缓存数据02');
-    Redis::set('cache03', '缓存数据03');
-    Redis::set('cache04', '缓存数据04');
+    Redis::set('cache04', 'data');
     
     return Redis::get('cache04');
   }
@@ -45,9 +41,9 @@ class QueueController extends Controller{
   //推送商品到队列
   public function sendItem(){
 
-    //分配队列
+    //指定队列
     $job = new SendItem();
-
+    //队列任务推送
     $this->dispatch($job);
 
     return '推送队列成功';
@@ -69,18 +65,11 @@ class QueueController extends Controller{
     return 'buy over';
   }
 
-  function unicodeDecode($unicode_str){
-    $json = '{"str":"'.$unicode_str.'"}';
-    $arr = json_decode($json,true);
-    if(empty($arr)) return '';
-    return $arr['str'];
-  }
-
   //查看购买成功客户姓名
   public function customerName(){
     $customerNames = Redis::hvals('buy_success');
 
-    return json_encode($customerNames, JSON_UNESCAPED_UNICODE);
+    return json_encode($customerNames, JSON_UNESCAPED_UNICODE);//编码转换
 
   }
 }
