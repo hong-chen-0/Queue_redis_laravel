@@ -30,6 +30,14 @@ class SendItem implements ShouldQueue
    * @return void
    */
   public function handle(){
-    Redis::set('item', '100');
+    //Redis::set('fff', '100');
+
+    //推送30个商品到reids队列
+    $count = 30;
+    $redisKey = 'goods_list';
+
+    for ($i = 1; $i <= $count; $i++) {
+        Redis::rpush($redisKey, $i);
+    }
   }
 }
