@@ -53,3 +53,17 @@ MAIL_FROM_NAME=HAYA
 4. $this->dispatch(new SendReminderEmail()) 推送队列任务到redis队列
 5. 终端中运行 php artisan queue:work --daemon 监听队列
 6. config/queue.php中配置REDIS_QUEUE（监听的队列）
+
+hset (hash表，商品字段，hash字段值)  将队列的商品转移到hash表中
+
+hvals 获取HASH字段
+
+hvals 获取HASH值
+
+hlen 获取HASH字段数量
+
+set 设置字段
+
+get 获取字段
+
+incr 值递增 阶梯为1
