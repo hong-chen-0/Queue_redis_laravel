@@ -12,10 +12,12 @@ use App\User;
 use App\Jobs\SendReminderEmail;
 use App\Jobs\SendItem;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class QueueController extends Controller{
   //接口测试
   public function test(){
+    Log::info('测试开始');
     return 'success';
   }
   //redis缓存
