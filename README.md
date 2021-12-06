@@ -67,3 +67,9 @@ set 设置字段
 get 获取字段
 
 incr 值递增 阶梯为1
+
+lpush/lpushx和rpush/rpushx的区别是插入到队列的头部，同上,‘x’含义是只对已存在的key进行操作
+
+lrange 返回队列元素   （0  -1  所有元素）
+
+
