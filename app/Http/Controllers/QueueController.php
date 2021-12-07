@@ -17,19 +17,19 @@ use Illuminate\Support\Facades\Log;
 class QueueController extends Controller{
   //接口测试
   public function test(){
-    Log::info('测试开始');
+    Log::info('test:start');
     return 'success';
   }
   //redis缓存
   public function setValue(){
+    Log::info('setValue:start');
     Redis::set('cache04', 'data');
-    
     return Redis::get('cache04');
   }
 
   //推送提醒邮件到队列
   public function sendReminderEmail(){
-
+    Log::info('sendReminderEmail:start');
     //分配队列
     $job = new SendReminderEmail();
     //$job = (new SendReminderEmail())->onQueue('emails');
@@ -42,7 +42,7 @@ class QueueController extends Controller{
 
   //推送商品到队列
   public function sendItem(){
-
+    Log::info('sendItem:start');
     //指定队列
     $job = new SendItem();
     //队列任务推送
@@ -52,8 +52,8 @@ class QueueController extends Controller{
   }
 
   //购买redis里的商品
-  public function buy()
-  {
+  public function buy(){
+    Log::info('buy:start');
     // 随机用户名
     $username = '客户名';
 
@@ -69,8 +69,8 @@ class QueueController extends Controller{
 
   //查看购买成功客户姓名
   public function customerName(){
+    Log::info('customerName:start');
     $customerNames = Redis::hvals('buy_success');
-
     return json_encode($customerNames, JSON_UNESCAPED_UNICODE);//编码转换
 
   }
