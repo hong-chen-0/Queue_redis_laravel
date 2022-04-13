@@ -56,7 +56,7 @@ MAIL_FROM_NAME=HAYA
 
 hset (hash表，商品字段，hash字段值)  将队列的商品转移到hash表中
 
-hvals 获取HASH字段
+hkeys 获取HASH字段
 
 hvals 获取HASH值
 
