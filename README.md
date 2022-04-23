@@ -74,4 +74,10 @@ lpush/lpushx和rpush/rpushx的区别是插入到队列的头部，同上,‘x’
 
 lrange 返回队列元素   （0  -1  所有元素）
 
+flushdb 删除当前数据库中的所有Key
+
+flushall 删除所有数据库中的key
+
+keys * 
+
 
